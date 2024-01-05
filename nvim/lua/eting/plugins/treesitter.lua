@@ -7,11 +7,13 @@ return {
 		require("nvim-treesitter.configs").setup({
 			ensure_installed = {
 				"bash",
+				"c",
 				"lua",
 				"markdown",
 				"markdown_inline",
-        "java",
-        "javascript",
+				"java",
+				"javascript",
+				"ruby",
 			},
 			sync_install = false,
 			auto_install = true,

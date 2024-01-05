@@ -49,7 +49,7 @@ return {
 					rosewater = "#d7827e",
 					flamingo = "#d8707e",
 					mantle = "#facff2",
-					crust = "#ffffff",
+					crust = "#2D2018",
 				},
 			},
 			highlight_overrides = {

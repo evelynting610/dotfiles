@@ -21,3 +21,17 @@ Then I installed one plugin, and fully learned that plugin. Then I installed ano
 **3. Choose for Neovim and Community Support**
 
 When there were several options for doing something I wanted, I also chose for community support. Two reasone (1) I want to install something that will be maintained against other dependency updates (2) I wanted quality and quick answers if I ran into problems. If Neovim itself maintained a plugin version, I chose that because it was the option closest to Neovim updates. I followed polls on Reddit for what people were using and what they were discussing.
+
+## Process
+
+I stole my base scaffolding for organization and plugins from maxh [here](https://github.com/maxh/dotfiles/tree/main/.config/nvim)
+
+For code styling, I used catppuccin because it was popular in the community and I could hack it to change all the colors to what I wanted. This isn't for everyone, but I wanted a pastel pink theme
+
+## Dependencies
+
+For my Telescope implementation: `brew install ripgrep`
+
+For "Native Lsp": Install any language servers you need. I had to install the lua language server (`brew install lua-language-server`). For linting, I installed a bunch through Mason, and also configured a `.luacheckrc` file at root to ignore globals such as vim and require.
+
+For Neotree: Install a NerdFont. The full list is [here](https://www.nerdfonts.com/font-downloads)
