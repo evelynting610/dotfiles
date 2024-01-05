@@ -26,11 +26,11 @@ When there were several options for doing something I wanted, I also chose for c
 
 I stole my base scaffolding for organization and plugins from maxh [here](https://github.com/maxh/dotfiles/tree/main/.config/nvim)
 
-For code styling, I used catppuccin because it was popular in the community and I could hack it to change all the colors to what I wanted. This isn't for everyone, but I wanted a pastel pink theme with high contrast.
+For code styling, I used catppuccin because it was popular in the community and I could [hack it](https://github.com/catppuccin/nvim/discussions/323) to change all the colors to what I wanted. This isn't for everyone, but I wanted a pastel pink theme with high contrast.
 
 <img width="675" alt="Screenshot 2024-01-05 at 12 09 31 PM" src="https://github.com/evelynting610/dotfiles/assets/8283768/8b0383eb-ff6a-432b-aae4-597a194f4565">
 
-For finding files, I am using Telescope.  I'm using fzf as a picker and ripgrep as a selector.  To install ripgrep, you have to `brew install ripgrep`.  I looked into using `sharkdp/fd`, but ripgrep performed the same plus could grep in files.  Since my codebase is large, I have a separate function to find things in Java files vs. Ruby files etc.
+For finding files, I am using Telescope.  I'm using fzf as a picker and ripgrep as a selector.  To install ripgrep, you have to `brew install ripgrep`.  I looked into using `sharkdp/fd`, but ripgrep performed the same plus could grep in files.  [Here](https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md) are the ripgrep commands.  Since my codebase is large, I have a separate function to find things in Java files vs. Ruby files etc.  I also [turned off](https://www.reddit.com/r/neovim/comments/ltj8re/trying_out_telescopenvim/) the preview function to improve performance.
 
 For an lsp, I am using `neovim/nvim-lspconfig`.  I considered coc.nvim and ale.  However, decided coq was too heavyweight and had more than what I needed.  I also looked at a [poll on Reddit](https://www.reddit.com/r/neovim/comments/t1bwys/coc_lsp_or_ale_what_to_you_use_for_development/) and people overwhelming preferred "Native Lsp".  What is "Native Lsp"?  It's a combination of the nvim-lsp plus mason plus nvim-cmp.  [This](https://levelup.gitconnected.com/configure-linting-formatting-and-autocompletion-in-neovim-a2cf15e2e04d) is the best guide I used for configuring Native Lsp.  I consideres using lsp-zero instead, but wanted to have the flexibility of changing each of the parts.
 
