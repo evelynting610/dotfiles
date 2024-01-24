@@ -40,6 +40,13 @@ return {
 			capabilities = require("cmp_nvim_lsp").default_capabilities(),
 		})
 
+		require("lspconfig").rubocop.setup({
+			on_attach = on_attach,
+			filetypes = { "ruby" },
+			cmd = { "rubocop", "--lsp", "--config", ".rubocop.yml" },
+			capabilities = require("cmp_nvim_lsp").default_capabilities(),
+		})
+
 		require("lspconfig").lua_ls.setup({
 			on_attach = on_attach,
 			filetypes = { "lua" },

@@ -1,5 +1,9 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
+	dependencies = {
+		"RRethy/nvim-treesitter-endwise",
+		"andymass/vim-matchup",
+	},
 	build = function()
 		require("nvim-treesitter.install").update({ with_sync = true })
 	end,
@@ -14,6 +18,12 @@ return {
 				"java",
 				"javascript",
 				"ruby",
+			},
+			endwise = {
+				enable = true,
+			},
+			matchup = {
+				enable = true,
 			},
 			sync_install = false,
 			auto_install = true,
