@@ -24,23 +24,27 @@ When there were several options for doing something I wanted, I also chose for c
 
 ## Process
 
-I stole my base scaffolding for organization and plugins from maxh [here](https://github.com/maxh/dotfiles/tree/main/.config/nvim)
+I stole my base scaffolding for organization and plugins from maxh [here](https://github.com/maxh/dotfiles/tree/main/.config/nvim).
 
 For code styling, I used catppuccin because it was popular in the community and I could [hack it](https://github.com/catppuccin/nvim/discussions/323) to change all the colors to what I wanted. This isn't for everyone, but I wanted a pastel pink theme with high contrast. More catppucin docs are [here](https://catppuccin-website.vercel.app/ports/nvim).
 
 <img width="675" alt="Screenshot 2024-01-05 at 12 09 31 PM" src="https://github.com/evelynting610/dotfiles/assets/8283768/8b0383eb-ff6a-432b-aae4-597a194f4565">
 
-For finding files, I am using Telescope. I'm using fzf as a picker and ripgrep as a selector. To install ripgrep, you have to `brew install ripgrep`. I looked into using `sharkdp/fd`, but ripgrep performed the same plus could grep in files. [Here](https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md) are the ripgrep commands. Since my codebase is large, I have a separate function to find things in Java files vs. Ruby files etc. I also [turned off](https://www.reddit.com/r/neovim/comments/ltj8re/trying_out_telescopenvim/) the preview function to improve performance.
+For finding files, I am using Telescope. I'm using fzf as a picker and ripgrep as a selector. To install ripgrep, you have to `brew install ripgrep`. I looked into using `sharkdp/fd`, but ripgrep performed the same plus could grep in files. [Here](https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md) are the ripgrep commands. Since my codebase is large, I have a separate function to find things in JS files vs. Python files etc. I also [turned off](https://www.reddit.com/r/neovim/comments/ltj8re/trying_out_telescopenvim/) the preview function to improve performance.
 
 For an lsp, I am using `neovim/nvim-lspconfig`. I considered coc.nvim and ale. However, decided coq was too heavyweight and had more than what I needed. I also looked at a [poll on Reddit](https://www.reddit.com/r/neovim/comments/t1bwys/coc_lsp_or_ale_what_to_you_use_for_development/) and people overwhelming preferred "Native Lsp". What is "Native Lsp"? It's a combination of the nvim-lsp plus mason plus nvim-cmp. [This](https://levelup.gitconnected.com/configure-linting-formatting-and-autocompletion-in-neovim-a2cf15e2e04d) is the best guide I used for configuring Native Lsp. I consideres using lsp-zero instead, but wanted to have the flexibility of changing each of the parts.
-The language server docs for nvim-lspconfig are [here](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#sorbet). [Here](https://microsoft.github.io/language-server-protocol/implementors/servers/) is a mapping of languages to lsps. The next thing I'm setting up is [solargraph](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#solargraph) for ruby.
+The language server docs for nvim-lspconfig are [here](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#sorbet). [Here](https://microsoft.github.io/language-server-protocol/implementors/servers/) is a mapping of languages to lsps. One cool thing is that there are even some lsps on there, such as Sorbet, that you would not expect (since Sorbet typechecks for Ruby). So look out for those too -- they're really helpful.
 
 For linting, people recommended null-ls. However, that has since been deprecated. I followed [this reddit thread](https://www.reddit.com/r/neovim/comments/15pj1oi/using_nvimlint_as_a_nullls_alternative_for_linters/) on linters to setup mine.
 
 ## Dependencies
 
+By default in Unix (including MacOS), neovim looks for the configuration in ~/.config/nvim. So, the nvim folder here should go in that path.
+
 For my Telescope implementation: `brew install ripgrep`
 
-For "Native Lsp": Install any language servers you need. I had to install the lua language server (`brew install lua-language-server`). For linting, I installed a bunch through Mason, and also configured a `.luacheckrc` file at root to ignore globals such as vim and require.
+For "Native Lsp": Install any language servers you need. I had to install the lua language server (`brew install lua-language-server`). I also installed luacheck (`brew install luacheck`). For linting, I installed a bunch through Mason (`:MasonInstall black flake8 pyright eslint_d prettier prettierd shellcheck stylua`), and also configured a `.luacheckrc` file at root to ignore globals such as vim and require.
 
-For Neotree: Install a NerdFont. The full list is [here](https://www.nerdfonts.com/font-downloads)
+For Neotree: Install a NerdFont. The full list is [here](https://www.nerdfonts.com/font-downloads). You can install this through brew as well
+`brew tap homebrew/cask-fonts`
+`brew install font-hack-nerd-font --cask`
