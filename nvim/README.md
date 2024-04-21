@@ -48,3 +48,5 @@ For "Native Lsp": Install any language servers you need. I had to install the lu
 For Neotree: Install a NerdFont. The full list is [here](https://www.nerdfonts.com/font-downloads). You can install this through brew as well
 `brew tap homebrew/cask-fonts`
 `brew install font-hack-nerd-font --cask`
+
+For Python Development: Go into your virtual environment. `pip install ruff-lsp`
