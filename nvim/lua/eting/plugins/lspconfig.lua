@@ -22,8 +22,13 @@ return {
 			--Enable completion triggered by <c-x><c-o>
 			buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
-			-- Mappings.
+			-- Recommended key bindings from
+			-- https://github.com/neovim/nvim-lspconfig
 			local opts = { noremap = true, silent = true }
+			vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, opts)
+			vim.keymap.set("n", "<leader>dp", vim.diagnostic.goto_prev, opts)
+			vim.keymap.set("n", "<leader>dn", vim.diagnostic.goto_next, opts)
+			vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, opts)
 
 			-- See `:help vim.lsp.*` for documentation on any of the below functions
 			buf_set_keymap("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)
@@ -35,15 +40,6 @@ return {
 		end
 
 		require("lspconfig").pyright.setup({
-			on_attach = on_attach,
-			filetypes = { "python" },
-			capabilities = require("cmp_nvim_lsp").default_capabilities(),
-		})
-
-		-- Configure `ruff-lsp`.
-		-- See: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#ruff_lsp
-		-- For the default config, along with instructions on how to customize the settings
-		require("lspconfig").ruff_lsp.setup({
 			on_attach = on_attach,
 			filetypes = { "python" },
 			capabilities = require("cmp_nvim_lsp").default_capabilities(),
