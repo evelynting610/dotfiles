@@ -47,10 +47,8 @@ By default in Unix (including MacOS), neovim looks for the configuration in ~/.c
 
 For my Telescope implementation: `brew install ripgrep`
 
-For "Native Lsp": Install any language servers you need. I had to install the lua language server (`brew install lua-language-server`). I also installed luacheck (`brew install luacheck`). For linting, I installed a bunch through Mason (`:MasonInstall black flake8 pyright eslint_d prettier prettierd shellcheck stylua`), and also configured a `.luacheckrc` file at root to ignore globals such as vim and require.
+For "Native Lsp": Install any language servers you need. I had to install the lua language server (`brew install lua-language-server`). I also installed luacheck (`brew install luacheck`). For linting, I installed a bunch through Mason (`:MasonInstall black flake8 pyright eslint_d prettier prettierd shellcheck stylua djlint ruff_format isort`), and also configured a `.luacheckrc` file at root to ignore globals such as vim and require.
 
 For Neotree: Install a NerdFont. The full list is [here](https://www.nerdfonts.com/font-downloads). You can install this through brew as well
 `brew tap homebrew/cask-fonts`
 `brew install font-hack-nerd-font --cask`
-
-For Python Development: Go into your virtual environment. `pip install ruff-lsp`
