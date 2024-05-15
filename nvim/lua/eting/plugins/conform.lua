@@ -4,13 +4,19 @@ return {
 	config = function()
 		require("conform").setup({
 			formatters_by_ft = {
+				htmldjango = { "djlint" },
 				lua = { "stylua" },
 				python = { "isort", "ruff_format" },
+				html = { { "prettierd", "prettier" }, "djlint" },
 				javascript = { { "prettierd", "prettier" } },
 				javascriptreact = { { "prettierd", "prettier" } },
 				json = { { "prettierd", "prettier" } },
 				graphql = { { "prettierd", "prettier" } },
-				markdown = { { "prettierd", "prettier" } },
+				markdown = {
+					{ "prettierd", "prettier" },
+					"markdown-toc",
+					"markdownlint",
+				},
 				css = { { "prettierd", "prettier" } },
 			},
 			format_on_save = { timeout_ms = 5000, lsp_fallback = true },

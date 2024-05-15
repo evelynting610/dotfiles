@@ -3,6 +3,7 @@ return {
 	dependencies = {
 		"RRethy/nvim-treesitter-endwise",
 		"andymass/vim-matchup",
+		"JoosepAlviste/nvim-ts-context-commentstring",
 	},
 	build = function()
 		require("nvim-treesitter.install").update({ with_sync = true })
@@ -18,11 +19,18 @@ return {
 				"java",
 				"javascript",
 				"python",
+				"html",
+				"sql",
+				"json",
+				"dockerfile",
 			},
 			endwise = {
 				enable = true,
 			},
 			matchup = {
+				enable = true,
+			},
+			autotag = {
 				enable = true,
 			},
 			sync_install = false,

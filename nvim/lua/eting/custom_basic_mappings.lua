@@ -17,6 +17,9 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz", { remap = false })
 vim.keymap.set("v", "<leader>p", '"_dP', { remap = false })
 vim.keymap.set("v", "<leader>d", '"_d', { remap = false })
 
+-- Paste on next line
+vim.keymap.set("n", "<leader>pu", ":pu<CR>", { remap = false })
+
 -- Yank without changing register content.
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { remap = false })
 vim.keymap.set("n", "<leader>Y", [["+Y]], { remap = false })
