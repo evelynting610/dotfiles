@@ -37,6 +37,10 @@ The language server docs for nvim-lspconfig are [here](https://github.com/neovim
 
 For linting, people recommended null-ls. However, that has since been deprecated. I followed [this reddit thread](https://www.reddit.com/r/neovim/comments/15pj1oi/using_nvimlint_as_a_nullls_alternative_for_linters/) on linters to setup mine.
 
+## Python and Django Inspiration
+
+I liked [this article](https://www.siddharta.me/configuring-neovim-as-a-python-ide-2023.html) on nvim python setup, with code [here](https://github.com/siddhi/nvim/blob/43b3e4d91fb39a46c4272674e967513416219a4f/init.lua). Also this [code](https://github.com/lcfd/NaryaVim/tree/f761d30e8fb7cbb70c28c73a7c658611a2e91dab/lua).
+
 ## Dependencies
 
 By default in Unix (including MacOS), neovim looks for the configuration in ~/.config/nvim. So, the nvim folder here should go in that path.
