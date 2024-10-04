@@ -41,6 +41,15 @@ For linting, people recommended null-ls. However, that has since been deprecated
 
 I liked [this article](https://www.siddharta.me/configuring-neovim-as-a-python-ide-2023.html) on nvim python setup, with code [here](https://github.com/siddhi/nvim/blob/43b3e4d91fb39a46c4272674e967513416219a4f/init.lua). Also this [code](https://github.com/lcfd/NaryaVim/tree/f761d30e8fb7cbb70c28c73a7c658611a2e91dab/lua).
 
+## Upgrading plugins
+
+`:Lazy sync`
+
+## JS linting and formatting
+
+Have to create an eslint file, such as eslint.config.mjs, to use eslint_d for linting.
+eslint_d and prettierd are faster versions of eslint and prettier.
+
 ## Dependencies
 
 By default in Unix (including MacOS), neovim looks for the configuration in ~/.config/nvim. So, the nvim folder here should go in that path.

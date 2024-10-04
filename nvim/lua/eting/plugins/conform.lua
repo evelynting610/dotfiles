@@ -8,10 +8,10 @@ return {
 				lua = { "stylua" },
 				python = { "isort", "ruff_format" },
 				html = { "djlint" },
-				javascript = { "prettier" },
-				json = { "prettier" },
+				javascript = { "prettierd" },
+				json = { "prettierd" },
 				markdown = {
-					"prettier",
+					"prettierd",
 					"markdown-toc",
 					"markdownlint",
 				},
