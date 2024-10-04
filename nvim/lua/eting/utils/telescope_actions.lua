@@ -56,6 +56,13 @@ function M.live_grep_js()
 	})
 end
 
+function M.live_grep_html()
+	require("telescope.builtin").live_grep({
+		glob_pattern = { "*.html" },
+		prompt_title = "Live Grep HTML Files",
+	})
+end
+
 function M.live_grep_args_in_search_dir()
 	local search_dir = get_search_dir()
 	require("telescope").extensions.live_grep_args.live_grep_args({

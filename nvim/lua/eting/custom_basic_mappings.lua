@@ -3,11 +3,18 @@ local opts = { noremap = true, silent = true }
 vim.keymap.set("n", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 
+-- Mapped Commands
+vim.api.nvim_create_user_command("W", "w", {})
+
 -- Window navigation
 vim.keymap.set("n", "<C-h>", "<C-w>h", opts)
 vim.keymap.set("n", "<C-j>", "<C-w>j", opts)
 vim.keymap.set("n", "<C-k>", "<C-w>k", opts)
 vim.keymap.set("n", "<C-l>", "<C-w>l", opts)
+
+-- Resize buffers
+vim.keymap.set("n", "<leader>=", ":vertical resize +10<CR>", opts)
+vim.keymap.set("n", "<leader>-", ":vertical resize -10<CR>", opts)
 
 -- Page up and down, centering vertically each time.
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { remap = false })

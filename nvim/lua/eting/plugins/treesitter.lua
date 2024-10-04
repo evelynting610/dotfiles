@@ -1,6 +1,7 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
 	dependencies = {
+		"windwp/nvim-ts-autotag",
 		"RRethy/nvim-treesitter-endwise",
 		"andymass/vim-matchup",
 		"JoosepAlviste/nvim-ts-context-commentstring",
@@ -30,9 +31,6 @@ return {
 			matchup = {
 				enable = true,
 			},
-			autotag = {
-				enable = true,
-			},
 			sync_install = false,
 			auto_install = true,
 			highlight = {
@@ -41,7 +39,14 @@ return {
 			},
 			indent = {
 				enable = true,
-				disable = { "python" },
+				disable = { "python", "html" },
+			},
+		})
+		require("nvim-ts-autotag").setup({
+			opts = {
+				enable_close = true,
+				enable_rename = true,
+				enable_close_on_slash = false,
 			},
 		})
 	end,

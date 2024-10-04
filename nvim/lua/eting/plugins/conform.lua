@@ -7,7 +7,7 @@ return {
 				htmldjango = { "djlint" },
 				lua = { "stylua" },
 				python = { "isort", "ruff_format" },
-				html = { { "prettierd", "prettier" }, "djlint" },
+				html = { "djlint" },
 				javascript = { { "prettierd", "prettier" } },
 				javascriptreact = { { "prettierd", "prettier" } },
 				json = { { "prettierd", "prettier" } },
@@ -17,7 +17,7 @@ return {
 					"markdown-toc",
 					"markdownlint",
 				},
-				css = { { "prettierd", "prettier" } },
+				-- css = { { "prettierd", "prettier" } },
 			},
 			format_on_save = { timeout_ms = 5000, lsp_fallback = true },
 		})

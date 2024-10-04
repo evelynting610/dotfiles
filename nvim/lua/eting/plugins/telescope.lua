@@ -19,6 +19,7 @@ return {
 
 		-- Grep
 		vim.keymap.set("n", "<leader>fg", custom_actions.live_grep_args, {})
+		vim.keymap.set("n", "<leader>ffh", custom_actions.live_grep_html, {})
 		vim.keymap.set("n", "<leader>fp", custom_actions.live_grep_python, {})
 		vim.keymap.set("n", "<leader>fj", custom_actions.live_grep_js, {})
 		vim.keymap.set("n", "<leader>fd", custom_actions.live_grep_args_in_search_dir, {})
