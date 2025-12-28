@@ -96,10 +96,7 @@ return {
 				},
 				-- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
 			},
-			compile = {
-				enabled = true,
-				path = vim.fn.stdpath("cache") .. "/catppuccin",
-			},
+			compile_path = vim.fn.stdpath("cache") .. "/catppuccin",
 		})
 		vim.cmd([[colorscheme catppuccin]])
 	end,

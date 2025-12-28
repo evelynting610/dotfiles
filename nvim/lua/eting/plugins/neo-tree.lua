@@ -21,8 +21,8 @@ return {
 					enabled = true,
 				},
 				hijack_netrw_behavior = "disabled",
+				use_libuv_file_watcher = true,
 			},
-			use_libuv_file_watcher = true,
 			window = {
 				auto_expand_width = true,
 			},

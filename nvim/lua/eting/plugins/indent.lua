@@ -1,6 +1,6 @@
 return {
 	"lukas-reineke/indent-blankline.nvim", -- Indent guides for Neovim
-	event = { "BufReadPost", "BufNewFile", "BufWritePre" },
+	event = { "BufReadPost", "BufNewFile" },
 	main = "ibl",
 	config = function()
 		require("ibl").setup({
