@@ -60,7 +60,58 @@ return {
 			},
 		})
 
+		-- Configure ts_ls for JS (provides rename, go-to-definition, hover, completions)
+		vim.lsp.config("ts_ls", {
+			filetypes = { "javascript", "javascriptreact" },
+			capabilities = capabilities,
+		})
+
+		-- Configure eslint (provides linting and auto-fix)
+		vim.lsp.config("eslint", {
+			filetypes = { "javascript", "javascriptreact" },
+			capabilities = capabilities,
+			settings = {
+				codeActionOnSave = {
+					enable = true,
+					mode = "all",
+				},
+			},
+		})
+
+		-- Configure ruff (native LSP server)
+		vim.lsp.config("ruff", {
+			filetypes = { "python" },
+			capabilities = capabilities,
+			init_options = {
+				settings = {
+					lineLength = 100,
+				},
+			},
+		})
+
+		-- Auto-fix ESLint issues on save
+		vim.api.nvim_create_autocmd("BufWritePre", {
+			pattern = { "*.js", "*.jsx" },
+			callback = function()
+				vim.lsp.buf.code_action({
+					context = { only = { "source.fixAll.eslint" } },
+					apply = true,
+				})
+			end,
+		})
+
+		-- Organize imports with Ruff on save
+		vim.api.nvim_create_autocmd("BufWritePre", {
+			pattern = { "*.py" },
+			callback = function()
+				vim.lsp.buf.code_action({
+					context = { only = { "source.organizeImports.ruff" } },
+					apply = true,
+				})
+			end,
+		})
+
 		-- Enable the language servers
-		vim.lsp.enable({ "pyright", "lua_ls" })
+		vim.lsp.enable({ "pyright", "lua_ls", "eslint", "ruff", "ts_ls" })
 	end,
 }

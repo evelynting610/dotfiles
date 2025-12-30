@@ -5,11 +5,10 @@ return {
 		local lint = require("lint")
 
 		lint.linters_by_ft = {
-			javascript = { "eslint_d" },
-			javascriptreact = { "eslint_d" },
+			-- JavaScript handled by eslint LSP
+			-- Python handled by ruff LSP
 			lua = { "luacheck" },
 			sh = { "shellcheck" },
-			python = { "ruff" },
 		}
 
 		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
