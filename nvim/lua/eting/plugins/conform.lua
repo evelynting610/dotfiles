@@ -6,7 +6,7 @@ return {
 			formatters_by_ft = {
 				htmldjango = { "djlint" },
 				lua = { "stylua" },
-				python = { "isort", "ruff_format" },
+				python = { "ruff_format" },
 				html = { "djlint" },
 				javascript = { "prettierd" },
 				json = { "prettierd" },
