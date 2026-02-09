@@ -66,18 +66,6 @@ return {
 			capabilities = capabilities,
 		})
 
-		-- Configure eslint (provides linting and auto-fix)
-		vim.lsp.config("eslint", {
-			filetypes = { "javascript", "javascriptreact" },
-			capabilities = capabilities,
-			settings = {
-				codeActionOnSave = {
-					enable = true,
-					mode = "all",
-				},
-			},
-		})
-
 		-- Configure ruff (native LSP server)
 		vim.lsp.config("ruff", {
 			filetypes = { "python" },
@@ -89,29 +77,34 @@ return {
 			},
 		})
 
-		-- Auto-fix ESLint issues on save
-		vim.api.nvim_create_autocmd("BufWritePre", {
-			pattern = { "*.js", "*.jsx" },
-			callback = function()
-				vim.lsp.buf.code_action({
-					context = { only = { "source.fixAll.eslint" } },
-					apply = true,
-				})
-			end,
-		})
-
-		-- Organize imports with Ruff on save
+		-- Organize imports with Ruff on save (synchronous to avoid race with conform)
 		vim.api.nvim_create_autocmd("BufWritePre", {
 			pattern = { "*.py" },
-			callback = function()
-				vim.lsp.buf.code_action({
-					context = { only = { "source.organizeImports.ruff" } },
-					apply = true,
-				})
+			callback = function(args)
+				local clients = vim.lsp.get_clients({ bufnr = args.buf, name = "ruff" })
+				if #clients == 0 then
+					return
+				end
+
+				local result = clients[1]:request_sync("textDocument/codeAction", {
+					textDocument = vim.lsp.util.make_text_document_params(args.buf),
+					range = {
+						start = { line = 0, character = 0 },
+						["end"] = { line = vim.api.nvim_buf_line_count(args.buf), character = 0 },
+					},
+					context = { only = { "source.organizeImports.ruff" }, diagnostics = {} },
+				}, 1000, args.buf)
+
+				if result and result.result and result.result[1] then
+					local action = result.result[1]
+					if action.edit then
+						vim.lsp.util.apply_workspace_edit(action.edit, "utf-16")
+					end
+				end
 			end,
 		})
 
 		-- Enable the language servers
-		vim.lsp.enable({ "pyright", "lua_ls", "eslint", "ruff", "ts_ls" })
+		vim.lsp.enable({ "pyright", "lua_ls", "ruff", "ts_ls" })
 	end,
 }

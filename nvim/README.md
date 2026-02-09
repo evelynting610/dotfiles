@@ -45,15 +45,10 @@ I liked [this article](https://www.siddharta.me/configuring-neovim-as-a-python-i
 
 `:Lazy sync`
 
-## JS linting, formatting, and language server
+## JS linting and formatting
 
-I am now using the eslint language server for linting. I installed it globally, since I need the same config for all projects and so it doesn't pollute my teammates' configs.
-
-`npm install -g eslint`
-
-Global eslint config: `echo '{ "env": { "browser": true, "es2021": true, "node": true }, "extends": "eslint:recommended" }' > ~/.eslintrc.json`
-
-I am using the typescript language server for goto jumps, and renaming functions and getting function definitions etc.
+Have to create an eslint file, such as eslint.config.mjs, to use eslint_d for linting.
+eslint_d and prettierd are faster versions of eslint and prettier.
 
 ## Dependencies
 
